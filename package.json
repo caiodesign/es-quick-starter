@@ -1,0 +1,41 @@
+{
+  "name": "es-quick-starter",
+  "version": "1.0.0",
+  "description": "A simple package to start developing with ECMAScript. This package includes Webpack, Webpack Server, Babel and Uglify.",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "serviceworker-webpack-plugin": "^1.0.0-alpha02",
+    "webpack": "^4.0.0-beta.3",
+    "webpack-cli": "^2.1.3",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/webpack --colors --progress --mode development",
+    "build-production": "./node_modules/.bin/webpack --colors --progress --mode production",
+    "watch": "npm run build -- --watch --mode development",
+    "server": "webpack-dev-server --open --inline --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caiodesign/es-quick-starter.git"
+  },
+  "keywords": [
+    "ecmascript",
+    "quick",
+    "starter",
+    "webpack",
+    "babel",
+    "server"
+  ],
+  "author": "Caio Oliveira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/caiodesign/es-quick-starter/issues"
+  },
+  "homepage": "https://github.com/caiodesign/es-quick-starter#readme"
+}
