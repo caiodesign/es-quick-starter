@@ -2,9 +2,12 @@ const webpack = require('webpack'); // loading webpack...
 const nodeENV = process.env.NODE_ENV || 'production'; // A simple variable to check if the env is development or not.
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
     devtool: 'source-map', // enabling the source-map files.
+    target: 'node',
+    externals: [nodeExternals()],
     entry: {
         filename: ['babel-polyfill', './src/App.js'] // source files.
     },
@@ -16,12 +19,12 @@ module.exports = {
     module: {
         rules: [
             {
-              test: /\.js$/, // get all .js files.
-              exclude: /(node_modules|bower_components)/, // exclude node_modules and bower_components before compile.
-              use: {
+                test: /\.js$/, // get all .js files.
+                exclude: /node_modules\/(?![async\-es|lodash\-es])/, // exclude node_modules and bower_components before compile.
+                use: {
                 loader: 'babel-loader', // loading babel...
                 options: {
-                  presets: ['env'],
+                    presets: ['env'],
                 }
               }
             }
